@@ -24,3 +24,13 @@ df.dropna(inplace=True)
 print(df.head())  
 print(df['label'].value_counts()) 
 
+# Feature Extraction using TF-IDF
+
+# Separate features and labels
+X = df['message']  
+y = df['label']    
+
+# Convert text to numeric features
+tfidf = TfidfVectorizer(stop_words='english', max_features=3000)
+X_transformed = tfidf.fit_transform(X)
+
